@@ -3,32 +3,25 @@
 Blackjack in Python
 """
 
-from card import Card, Faces, Suits
-from deck import Deck
+from game import Game
 from player import Player
 
 if __name__ == '__main__':
     
-    # Initiate a deck of cards, 3 decks in size.
-    aDeck = Deck(3)
+    # initialize a game of blackjack.
+    blackjackGame = Game()
     
-    # Shuffle the deck of cards.
-    aDeck.shuffleDeck()
+    # create a player.
+    playerOne = Player("Player One")
     
-    # Create a Player with $100
-    aPlayer = Player("Cameron", 100.00)
+    # add the player to the game.
+    blackjackGame.addPlayer(playerOne)
     
-    # Add a hand worth $10 to that players hands
-    aPlayer.addHand(10.00)
-
-    # Deal player 2 cards.
-    aPlayer.hands[0].addCard(aDeck.dealACard())
-    aPlayer.hands[0].addCard(aDeck.dealACard())
+    # create a hand with a $5.00 wager for the player to control.
+    playerOne.addHand(5.00)
     
-    # Show hand
-    print("{}'s current hand:".format(aPlayer.name))
+    # deal initial cards
+    blackjackGame.dealInitialCards()
     
-    for card in aPlayer.hands[0].cards_in_hand:
-        print("{} of {}: {}".format(card.face.name, card.suit.name, card.getValue()))
-        
-    print("Total value: {}".format(aPlayer.hands[0].total()))
+    # print game status
+    blackjackGame.printGameStatus()

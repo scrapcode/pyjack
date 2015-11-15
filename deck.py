@@ -5,13 +5,14 @@ class Deck:
     '''
     Represents and Deck of Cards
     '''
-    cards_in_deck = []
-    
+
     def __init__(self, deck_size=1):
         '''Deck(deck_size)
         
         Creates a deck of 52 cards in multiples of deck_size.
         '''
+        self.cards_in_deck = []
+        
         for i in range(deck_size):
             for suit in Suits:
                 for face in Faces:

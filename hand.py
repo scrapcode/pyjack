@@ -4,11 +4,11 @@ class Hand:
     '''
     Represents a hand of cards.
     '''
-    cards_in_hand = []
-    bets_on_hand = 0.0
     
     def __init__(self, wager=0.0):
         self.bets_on_hand = wager
+        self.cards_in_hand = []
+        self.bets_on_hand = 0.0
     
     def addCard(self, card):
         '''addCard(card)
