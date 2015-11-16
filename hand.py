@@ -1,4 +1,10 @@
+from enum import Enum
 from card import Card, Suits, Faces
+
+class HandStatus(Enum):
+    Open = 0
+    Blackjack = 1
+    Bust = 2
 
 class Hand:
     '''
@@ -6,9 +12,10 @@ class Hand:
     '''
     
     def __init__(self, wager=0.0):
-        self.bets_on_hand = wager
+        self.wager = wager
         self.cards_in_hand = []
-        self.bets_on_hand = 0.0
+        self.status = HandStatus.Open
+        
     
     def addCard(self, card):
         '''addCard(card)
